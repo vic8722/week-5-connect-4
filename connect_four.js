@@ -9,18 +9,21 @@ var ConnectFourGame = function(){
   //               "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
   //             ];
 
+//                      1       2       3       4       5       6       7
 this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
-              "edge", "red"  ,"black","black","black","black",null   ,"black","edge" ,
-              "edge", "black","red"  ,null   ,"red"  ,null   ,null   ,null   ,"edge" ,
-              "edge", null   ,"black","red"  ,null   ,null   ,null   ,null  ,"edge" ,
-              "edge", null   ,"red"  ,null   ,"red"  ,null   ,null   ,null   ,"edge" ,
-              "edge", null   ,null   ,"red"  ,null   ,null   ,null   ,"red"  ,"edge" ,
-              "edge", null   ,null   ,null   ,null   ,"red"   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,null   ,null   ,"red"  ,null   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,null   ,"red"  ,"black",null   ,null   ,null   ,"edge" ,
+              "edge" ,null   ,"red"  ,"black","red"  ,"red"  ,"black","black","edge" ,
               "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
               ];
 
+
+
   this.checkWin = function(){
-    _board = this.board;
+    var _board = this.board;
     var won = false;
     this.board.forEach(function(element, index){
       if(element != null && element != "edge"){
@@ -45,24 +48,35 @@ this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"e
     return won;
   }
 
+  // this.playerTurn = function(){
+
+  // }
+  this.playerColor = "black"
+
+  this.playTurn = function(columnNumber){
+    for (var i = columnNumber + 9; i < 1000; i += 9){
+        if (this.board[i] != null){
+          this.board[i - 9] = this.playerColor;
+          return;
+          i = 1000;
+                  }
+    }
+
+  }
+
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var newGame = new ConnectFourGame();
-console.log(newGame.checkWin());
+console.log(String(newGame.board));
+
+newGame.playTurn(1);
+
+console.log(String(newGame.board));
+
+var askg = function (){
+
+  sdlfjsd
+}
