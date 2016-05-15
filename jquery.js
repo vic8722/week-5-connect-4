@@ -9,9 +9,14 @@ $(document).ready(function(){
 			$('#row'+row + ' .col' + column).css('background-color', newGame.playerColor )
 		} else {
 			$("#winner-status").html(newGame.playerColor.toUpperCase() + " WINS");
+
 		}
 	}
 	)
+
+	$('#new-game-button').click(function() {
+				    location.reload();
+				});
 })
 
 
