@@ -1,3 +1,7 @@
+
+
+
+
 var ConnectFourGame = function(){
   // this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
   //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
@@ -55,9 +59,11 @@ this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"e
 
   this.playTurn = function(columnNumber){
     for (var i = columnNumber + 9; i < 1000; i += 9){
+      
         if (this.board[i] != null){
-          this.board[i - 9] = this.playerColor;
-          return;
+          this.board[i - 9] = this.playerColor
+          return i-9;
+          
           i = 1000;
                   }
     }

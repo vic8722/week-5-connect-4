@@ -1,0 +1,27 @@
+#row1, #row2,#row3,#row4,#row5,#row6 {
+	height: 50px;
+	width: 1000px;
+	display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  
+}
+
+
+
+.col1, .col2, .col3, .col4, .col5, .col6 {
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	border: 1px solid;
+	
+
+}
+
+.board-container {
+	width: 50%;
+	position: absolute;
+	left: 30%;
+
+}
