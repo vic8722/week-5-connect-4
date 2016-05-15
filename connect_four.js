@@ -3,28 +3,35 @@
 
 
 var ConnectFourGame = function(){
-  // this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-  //               "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
-  //             ];
-
-//                      1       2       3       4       5       6       7
-this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
-              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-              "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
-              "edge" ,null   ,null   ,null   ,"red"  ,null   ,null   ,null   ,"edge" ,
-              "edge" ,null   ,null   ,"red"  ,"black",null   ,null   ,null   ,"edge" ,
-              "edge" ,null   ,"red"  ,"black","red"  ,"red"  ,"black","black","edge" ,
-              "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
+  this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge", null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+                "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
               ];
 
-
+//                      1       2       3       4       5       6       7
+// this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,
+//               "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+//               "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+//               "edge" ,null   ,null   ,null   ,null   ,null   ,null   ,null   ,"edge" ,
+//               "edge" ,null   ,null   ,null   ,"red"  ,null   ,null   ,null   ,"edge" ,
+//               "edge" ,null   ,null   ,"red"  ,"black",null   ,null   ,null   ,"edge" ,
+//               "edge" ,null   ,"red"  ,"black","red"  ,"red"  ,"black","black","edge" ,
+//               "edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge"
+//               ];
+  this.colors = ['black', 'red']
+  this.playerColor = this.colors[0]
+  this.switchColor = function(){
+    if (this.playerColor === this.colors[0]){
+      this.playerColor = this.colors[1]
+    } else {
+      this.playerColor = this.colors[0]
+    }
+  }
 
   this.checkWin = function(){
     var _board = this.board;
@@ -55,13 +62,14 @@ this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"e
   // this.playerTurn = function(){
 
   // }
-  this.playerColor = "black"
+  
 
   this.playTurn = function(columnNumber){
     for (var i = columnNumber + 9; i < 1000; i += 9){
       
         if (this.board[i] != null){
           this.board[i - 9] = this.playerColor
+          this.switchColor()
           return i-9;
           
           i = 1000;
@@ -69,6 +77,8 @@ this.board = ["edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"edge" ,"e
     }
 
   }
+
+
 
 }
 
