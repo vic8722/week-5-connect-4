@@ -8,7 +8,7 @@ $(document).ready(function(){
 			var row = Math.floor(cell/9)
 			$('#row'+row + ' .col' + column).css('background-color', newGame.playerColor )
 		} else {
-			alert(newGame.playercolor + "LOSES")
+			alert(newGame.playerColor.toUpperCase() + " LOSES")
 		}
 	}
 	)
