@@ -30,6 +30,11 @@ $(document).ready(function(){
         		lock = true;
         	}
 
+                if (receivedMessage.refresh) {
+                        alert("Your opponent left. :( New game initiated.");
+                        location.reload();
+                }
+
 
         }
 
