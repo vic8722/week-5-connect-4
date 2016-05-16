@@ -1,7 +1,6 @@
 var ws = require("nodejs-websocket")
 
 var clients = []
-<<<<<<< HEAD
 var messages = []
 
 var server = ws.createServer(function(conn){
