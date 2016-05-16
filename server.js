@@ -1,6 +1,7 @@
 var ws = require("nodejs-websocket")
 
 var clients = []
+<<<<<<< HEAD
 var messages = []
 
 var server = ws.createServer(function(conn){
@@ -17,6 +18,7 @@ var server = ws.createServer(function(conn){
 
         })
         conn.sendText(JSON.stringify({lock: true}));
+
     })
     conn.on("close", function(code, reason){
         clients.splice(clients.indexOf(conn), 1);
