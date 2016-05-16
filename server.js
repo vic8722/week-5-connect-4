@@ -1,18 +1,23 @@
 var ws = require("nodejs-websocket")
 
 var clients = []
+var messages = []
 
 var server = ws.createServer(function(conn){
     clients.push(conn);
-    console.log(clients)
+    
     console.log("new connection");
 
     conn.on("text", function(receivedMessage){
-
-        console.log("received " +receivedMessage)
+        var column = receivedMessage
+    	
+        console.log("recieved")
         clients.forEach(function(client){
-            client.sendText(receivedMessage)
+            client.sendText(column); 
+
         })
+        conn.sendText(JSON.stringify({lock: true}));
+
     })
     conn.on("close", function(code, reason){
         clients.splice(clients.indexOf(conn), 1);
