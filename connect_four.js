@@ -62,16 +62,16 @@ var ConnectFourGame = function(){
   // this.playerTurn = function(){
 
   // }
-  
+
 
   this.playTurn = function(columnNumber){
     for (var i = columnNumber + 9; i < 1000; i += 9){
-      
+
         if (this.board[i] != null){
           this.board[i - 9] = this.playerColor
           this.switchColor()
           return i-9;
-          
+
           i = 1000;
                   }
     }
@@ -86,11 +86,11 @@ var ConnectFourGame = function(){
 
 
 var newGame = new ConnectFourGame();
-console.log(String(newGame.board));
+// console.log(String(newGame.board));
 
 newGame.playTurn(1);
 
-console.log(String(newGame.board));
+// console.log(String(newGame.board));
 
 var askg = function (){
 
