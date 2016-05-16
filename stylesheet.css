@@ -24,7 +24,7 @@
 
 .board-container {
 	/*display: flex;*/
-	width: 50%;
+	width: 683px;
 	position: absolute;
 	left: 25%;
 	z-index: 4;
