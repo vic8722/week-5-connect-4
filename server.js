@@ -21,7 +21,9 @@ var server = ws.createServer(function(conn){
     })
     conn.on("close", function(code, reason){
         clients.splice(clients.indexOf(conn), 1);
-
+        clients.forEach(function(client){
+            client.sendText(JSON.stringify({refresh: true}))
+        })
         console.log("connection closed for "+reason)
     })
 }).listen(8001)
